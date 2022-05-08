@@ -12,4 +12,4 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-View deployed app here: https://crypto-exchanges-p2n6nj380-rlin415.vercel.app/
+View deployed app here: https://crypto-exchanges-six.vercel.app/
