@@ -4,15 +4,17 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 export async function getServerSideProps() {
-  const res = await fetch(`https://api.coingecko.com/api/v3/exchanges?per_page=10`)
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/exchanges?per_page=10`
+  )
   const data = await res.json()
   return { props: { data } }
 }
 
-export default function Exchange ({ data }) {
+export default function Exchange({ data }) {
   const router = useRouter()
   const { eid } = router.query
-  const exchange = data.filter(exchange => exchange.id === eid)[0];
+  const exchange = data.filter((exchange) => exchange.id === eid)[0]
 
   return (
     <div className={styles.container}>
@@ -22,9 +24,7 @@ export default function Exchange ({ data }) {
 
       <main className={styles.main}>
         <img src={exchange.image}></img>
-        <h1 className={styles.title}>
-          {exchange.name}
-        </h1>
+        <h1 className={styles.title}>{exchange.name}</h1>
 
         <div className={styles.grid}>
           <div>
