@@ -4,7 +4,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
     "next": "12.1.4",
@@ -13,6 +15,8 @@
   },
   "devDependencies": {
     "eslint": "8.12.0",
-    "eslint-config-next": "12.1.4"
+    "eslint-config-next": "12.1.4",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "2.6.2"
   }
 }
