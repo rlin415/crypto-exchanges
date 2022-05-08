@@ -42,6 +42,7 @@ export default function Home({ data }) {
                 <a
                   href={exchange.url}
                   target="_blank"
+                  rel="noreferrer"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {exchange.url}
