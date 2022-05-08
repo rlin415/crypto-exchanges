@@ -29,7 +29,7 @@ export default function Home({ data }) {
       <main className={styles.main}>
         <h1 className={styles.title}>Crypto Exchanges</h1>
 
-        <div className={styles.grid}>
+        <div className={`${styles.grid} exchanges`}>
           {data.map((exchange, idx) => {
             return (
               <ul

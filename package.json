@@ -6,7 +6,8 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore ."
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "next": "12.1.4",
@@ -14,6 +15,7 @@
     "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "cypress": "^9.6.0",
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.4",
     "eslint-config-prettier": "^8.5.0",
