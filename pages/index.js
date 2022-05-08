@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import { useRouter } from 'next/router'
 
 export async function getServerSideProps() {
   const res = await fetch(`https://api.coingecko.com/api/v3/exchanges?per_page=10`)
@@ -7,11 +8,16 @@ export async function getServerSideProps() {
   return { props: { data } }
 }
 
-const viewExchange = (e) => {
-
-};
-
 export default function Home({ data }) {
+  const router = useRouter();
+
+  const viewExchange = (idx, event) => {
+    const exchange = data[idx];
+    router.push({
+      pathname: `/exchange/${exchange.id}`
+    });
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -27,10 +33,10 @@ export default function Home({ data }) {
           {
             data.map((exchange, idx) => {
               return (
-                <ul key={idx} className={styles.card} onClick={viewExchange}>
+                <ul key={idx} className={styles.card} onClick={viewExchange.bind(this, idx)}>
                   <img src={exchange.image}></img>
                   <h2>{exchange.name} &rarr;</h2>
-                  <a href={exchange.url} target="_blank">{exchange.url}</a>
+                  <a href={exchange.url} target="_blank" onClick={(e) => e.stopPropagation()}>{exchange.url}</a>
                   <p>Country: {exchange.country}</p>
                   <p>Trust score: {exchange.trust_score}</p>
                 </ul>
